@@ -1,17 +1,16 @@
 package com.application.rest.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
-@Getter
 @Setter
-@Builder
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "producto")
 public class Product {
@@ -28,5 +27,6 @@ public class Product {
 
     @ManyToOne
     @JoinColumn(name = "id_fabricante", nullable = false)
+    @JsonIgnore
     private Maker maker;
 }
